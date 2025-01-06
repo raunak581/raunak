@@ -1,5 +1,6 @@
 import 'package:chatapp/avatarname.dart';
 import 'package:chatapp/main.dart';
+import 'package:chatapp/new.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
@@ -56,32 +57,65 @@ class _Landing_pageState extends State<Landing_page> {
                 ),
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ChatScreen(),
+              Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChatScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                      backgroundColor: const Color.fromARGB(255, 212, 230, 213),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      elevation: 5,
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                  backgroundColor: const Color.fromARGB(255, 212, 230, 213),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    child: const Text(
+                      "Start Chat",
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  elevation: 5,
-                ),
-                child: const Text(
-                  "Start Chat",
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+
+                  SizedBox(width: 10,),
+               ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => audioScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                      backgroundColor: const Color.fromARGB(255, 212, 230, 213),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      elevation: 5,
+                    ),
+                    child: const Text(
+                      "Start Audio",
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
+              
               const SizedBox(height: 30),
               Expanded(
                 child: LayoutBuilder(builder: (context, constraints) {

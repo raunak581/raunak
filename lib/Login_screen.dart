@@ -35,13 +35,8 @@ class _LoginPageState extends State<LoginPage> {
     if (response.statusCode == 200) {
       final responseBody = jsonDecode(response.body);
       print('Login successful: ${responseBody['token']}');
-      final userId = responseBody['userId'];
-      final userEmail = responseBody['userEmail'];
-
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('token', responseBody['token']);
-      await prefs.setString('userId', userId.toString());
-      await prefs.setString('userEmail', userEmail);
+      
+      
 
       Navigator.pushReplacement(
         context,
@@ -245,4 +240,5 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
 }

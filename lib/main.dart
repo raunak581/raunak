@@ -283,6 +283,8 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: Icon(Icons.send, color: Colors.white),
                   ),
                 ),
+
+                
               ],
             ),
           ),

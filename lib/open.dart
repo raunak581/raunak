@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OpenAIChatService {
-  final String apiKey = "sk-proj-AkmIKHdVDqbAp9gXn532T3BlbkFJNbplxEIwrrRl2dCHBqCY";
+  final String apiKey =
+      "sk-proj-AkmIKHdVDqbAp9gXn532T3BlbkFJNbplxEIwrrRl2dCHBqCY";
   final String assistantId = "asst_v723GyN0btxPD3R6usGhk6LU";
   final String threadIdStorageKey = "threadId";
 
@@ -99,9 +100,8 @@ class OpenAIChatService {
       final data = jsonDecode(response.body);
       final messages = data['data'] as List;
 
-      final assistantMessage = messages
-          .where((message) => message['role'] == 'assistant')
-          .toList();
+      final assistantMessage =
+          messages.where((message) => message['role'] == 'assistant').toList();
 
       if (assistantMessage.isNotEmpty) {
         return assistantMessage.last['content'];
@@ -121,7 +121,6 @@ class OpenAIChatService {
       await sendMessage(threadId, content);
       final response = await getAssistantResponse(threadId);
       return response;
-      
     }
     return null;
   }
